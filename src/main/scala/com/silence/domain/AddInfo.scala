@@ -4,8 +4,8 @@ import scala.beans.BeanProperty
 import com.silence.enties.User
 
 /**
- * @description 返回添加好友、群组消息
- * @date 2017-04-16
+ * 返回添加好友、群组消息
+ * 2017-04-16
  * @author silence
  */
 class AddInfo {

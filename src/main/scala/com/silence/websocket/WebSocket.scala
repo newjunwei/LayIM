@@ -19,8 +19,8 @@ import com.silence.util.WebSocketUtil
 import com.silence.Application
 
 /**
- * @description websocket服务器处理消息
- * @date 2017-04-09
+ * websocket服务器处理消息
+ * 2017-04-09
  * @author silence
  */
 @ServerEndpoint(value = "/websocket/{uid}")
@@ -34,9 +34,9 @@ class WebSocket {
     private final val gson: Gson = new Gson    
     
     private var uid: Integer = _
-    
+
     /**
-     * @description 服务器接收到消息调用
+     * 服务器接收到消息调用
      * @param message 消息体
      * @param session 
      */
@@ -86,7 +86,7 @@ class WebSocket {
     }
     
     /**
-     * @description 首次创建链接
+     * 首次创建链接
      * @param session
      * @param uid
      */
@@ -99,7 +99,7 @@ class WebSocket {
     }
     
     /**
-     * @description 链接关闭调用
+     * 链接关闭调用
      * @param session
      */
     @OnClose
@@ -110,7 +110,7 @@ class WebSocket {
     }
     
     /**
-     * @description 服务器发送错误调用
+     * 服务器发送错误调用
      * @param session
      * @param error
      */

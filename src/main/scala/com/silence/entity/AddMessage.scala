@@ -4,8 +4,8 @@ import scala.beans.BeanProperty
 import java.util.Date
 
 /**
- * @description 添加好友、群组信息
- * @date 2017-04-16
+ * 添加好友、群组信息
+ * 2017-04-16
  * @author silence
  */
 class AddMessage {

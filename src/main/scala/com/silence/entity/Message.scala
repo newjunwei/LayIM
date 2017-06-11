@@ -3,8 +3,8 @@ package com.silence.entity
 import scala.beans.BeanProperty
 
 /**
- * @description 服务器用于接收消息
- * @date 2017-04-09
+ * 服务器用于接收消息
+ * 2017-04-09
  * @author silence
  */
 class Message {

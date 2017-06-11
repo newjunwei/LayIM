@@ -3,8 +3,8 @@ package com.silence.util
 import javax.servlet.http.HttpServletRequest
 
 /**
- * @description web工具
- * @date 2017-04-08
+ * web工具
+ * 2017-04-08
  * @author silence
  */
 object WebUtil {

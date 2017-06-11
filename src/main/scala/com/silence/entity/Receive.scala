@@ -4,8 +4,8 @@ import scala.beans.BeanProperty
 import java.lang.Long
 
 /**
- * @description 客户端接收消息类型
- * @date 2017-04--09
+ * 客户端接收消息类型
+ * 2017-04--09
  * @author silence
  */
 class Receive {

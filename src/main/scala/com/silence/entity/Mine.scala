@@ -3,8 +3,8 @@ package com.silence.entity
 import scala.beans.BeanProperty
 
 /**
- * @description 我发送的消息和我的信息
- * @date 2017-04-08
+ * 我发送的消息和我的信息
+ * 2017-04-08
  * @author silence
  */
 class Mine {

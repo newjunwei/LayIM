@@ -6,14 +6,14 @@ import org.apache.commons.io.FileUtils
 import com.silence.common.SystemConstant
 
 /**
- * @description 服务器文件工具
- * @date 2017-04-06
+ * 服务器文件工具
+ * 2017-04-06
  * @author silence
  */
 object FileUtil {
   
     /**
-     * @description 文件保存服务器
+     * 文件保存服务器
      * @param types 文件类型/upload/image 或  /upload/file
      * @param path 文件绝对路径地址
      * @param file 二进制文件
@@ -37,7 +37,7 @@ object FileUtil {
     }
     
     /**
-     * @description 头像
+     * 头像
      * @param realpath 服务器绝对路径地址
      * @param file 文件
      * @return 相对路径 

@@ -15,7 +15,7 @@ object RandomData {
   	private final val teleFirst : Array[String] = "134,135,136,137,138,139,150,151,152,157,158,159,130,131,132,155,156,133,153".split(",");
   	
     /**
-		 * @@description 随机生成电话号码
+		 * @随机生成电话号码
 	   * @return 电话号码
 	   */
 	  def getTel(): String = {
@@ -27,7 +27,7 @@ object RandomData {
     }
 	  
 	  /**
-  	 * @@description 随机生成中文名字
+  	 * @随机生成中文名字
   	 * @return 中文名
   	 */
     def getChineseName(): String = {
@@ -53,7 +53,7 @@ object RandomData {
   	}
 
 	  /**
-	   * @description 获取范围内的随机数字
+	   * 获取范围内的随机数字
 	   * @param start 
 	   * @param end
 	   * @return
@@ -63,7 +63,7 @@ object RandomData {
 	  }
 
 	  /**
-  	 * @description 随机生成时间
+  	 * 随机生成时间
   	 * @return 时间
   	 */
   	def getDate(): String = {

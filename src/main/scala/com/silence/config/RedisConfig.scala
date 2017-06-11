@@ -11,8 +11,8 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory
 import redis.clients.jedis.JedisPoolConfig
 
 /**
- * @description redis连接配置
- * @date 2017-03-29
+ * redis连接配置
+ * 2017-03-29
  * @author silence
  */
 @Configuration
@@ -48,7 +48,7 @@ class RedisConfig {
     private var maxWait: Int = _
     
     /**
-     * @description Jedis数据源配置
+     * Jedis数据源配置
      * @return JedisPoolConfig
      */
     @Bean
@@ -62,7 +62,7 @@ class RedisConfig {
     }
     
     /**
-     * @description Jedis数据连接工场
+     * Jedis数据连接工场
      * @return JedisConnectionFactory
      */
     @Bean

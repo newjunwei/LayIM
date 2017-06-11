@@ -4,7 +4,7 @@ import com.silence.common.SystemConstant
 import scala.beans.BeanProperty
 
 /**
- * @description 返回值信息
+ * 返回值信息
  * @param code 状态，0表示成功，其他表示失败
  * @param msg 额外信息
  */

@@ -4,7 +4,7 @@ import java.lang.String
 import scala.beans.BeanProperty
 
 /**
- * @description 好友分组列表
+ * 好友分组列表
  * @param id 分组id
  * @param groupname 分组名称
  * @param avatar 群组头像地址

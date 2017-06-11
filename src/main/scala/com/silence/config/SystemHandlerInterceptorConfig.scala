@@ -8,8 +8,8 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 /**
- * @description 系统拦截器配置
- * @date 2017-04-10
+ * 系统拦截器配置
+ * 2017-04-10
  * @author silence
  */
 class SystemHandlerInterceptorConfig extends HandlerInterceptor {
@@ -17,7 +17,7 @@ class SystemHandlerInterceptorConfig extends HandlerInterceptor {
     private final val LOGGER: Logger = LoggerFactory.getLogger(classOf[SystemHandlerInterceptorConfig])
   
     /**
-     * @description 前置处理器，在请求处理之前调用
+     * 前置处理器，在请求处理之前调用
      * @param request
      * @param response
      * @param handler
@@ -34,7 +34,7 @@ class SystemHandlerInterceptorConfig extends HandlerInterceptor {
     }
     
     /**
-     * @description 请求处理之后进行调用，但是在视图被渲染之前(Controller方法调用之后)
+     * 请求处理之后进行调用，但是在视图被渲染之前(Controller方法调用之后)
      * @param request
      * @param response
      * @param handler
@@ -46,7 +46,7 @@ class SystemHandlerInterceptorConfig extends HandlerInterceptor {
     }
 
     /**
-     * @description 后置处理器，渲染视图完成
+     * 后置处理器，渲染视图完成
      * @param request
      * @param response
      * @param handler

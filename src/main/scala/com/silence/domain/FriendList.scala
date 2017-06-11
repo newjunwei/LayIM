@@ -6,7 +6,7 @@ import java.lang.String
 import scala.beans.BeanProperty
 
 /**
- * @description 好友列表
+ * 好友列表
  * @param id 好友列表分组
  * @param groupname 列表名称
  * @param list 列表中的好友信息

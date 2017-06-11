@@ -30,8 +30,8 @@ import com.silence.entity.FriendGroup
 import com.silence.domain.GroupMember
 
 /**
- * @description 用户信息相关操作
- * @date 2017-04-06
+ * 用户信息相关操作
+ * 2017-04-06
  */
 @Service
 class UserService @Autowired()(private var userMapper: UserMapper) {
@@ -42,14 +42,14 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     @Autowired private var mailService: MailService = _
     
     /**
-     * @description 退出群
+     * 退出群
      * @param groupMember
      */
     @CacheEvict(value = Array("findUserById","findFriendGroupsById","findUserByGroupId"), allEntries = true)
     def leaveOutGroup(gid: Integer, uid: Integer): Boolean = userMapper.leaveOutGroup(new GroupMember(gid, uid)) == 1    
     
     /**
-     * @description 添加群成员
+     * 添加群成员
      * @param gid 群编号
      * @param uid 用户编号
      * @param messageBoxId 消息盒子Id
@@ -65,7 +65,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 删除好友
+     * 删除好友
      * @param friendId 好友Id
      * @param uId 个人Id
      * @return Boolean
@@ -79,7 +79,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 更新用户头像
+     * 更新用户头像
      * @param userId
      * @param avatar
      * @return 
@@ -94,7 +94,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 移动好友分组
+     * 移动好友分组
      * @param groupId 新的分组id
      * @param uId 被移动的好友id
      * @param mId 我的id
@@ -111,7 +111,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 添加好友操作
+     * 添加好友操作
      * @param mid 我的id
      * @param mgid 我设定的分组
      * @param tid 对方的id
@@ -129,7 +129,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 创建好友分组列表
+     * 创建好友分组列表
      * @param uid
      * @param groupName
      */
@@ -141,13 +141,13 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 统计消息
+     * 统计消息
      * @param uid
      */
     def countUnHandMessage(uid: Integer, agree: Integer): Integer = userMapper.countUnHandMessage(uid, agree)
     
     /**
-     * @description 查询添加好友、群组信息
+     * 查询添加好友、群组信息
      * @param uid
      * @return List[AddInfo]
      */
@@ -168,7 +168,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 更新好友、群组信息请求
+     * 更新好友、群组信息请求
      * @param addMessage
      * @return
      */
@@ -182,35 +182,35 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     
     
     /**
-     * @description 添加好友、群组信息请求
+     * 添加好友、群组信息请求
      * @param addMessage
      * @return
      */  
     def saveAddMessage(addMessage: AddMessage): Int = userMapper.saveAddMessage(addMessage)
     
     /**
-     * @description 根据群名模糊统计
+     * 根据群名模糊统计
      * @param groupName
      * @return
      */
     def countGroup(groupName: String): Int = userMapper.countGroup(groupName)
     
     /**
-     * @description 根据群名模糊查询群
+     * 根据群名模糊查询群
      * @param groupName
      * @return 
      */
     def findGroup(groupName: String): List[GroupList] = userMapper.findGroup(groupName)
     
     /**
-     * @description 根据用户名和性别统计用户
+     * 根据用户名和性别统计用户
      * @param username
      * @param sex
      */
     def countUsers(username: String, sex: Integer): Int = userMapper.countUser(username, sex)
     
     /**
-     * @description 根据用户名和性别查询用户
+     * 根据用户名和性别查询用户
      * @param username
      * @param sex
      */
@@ -218,7 +218,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     
     
     /**
-     * @description 统计查询消息
+     * 统计查询消息
      * @param uid 消息所属用户
      * @param mid 来自哪个用户
      * @param Type 消息类型，可能来自friend或者group
@@ -231,7 +231,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 查询历史消息
+     * 查询历史消息
      * @param uid
      * @param 
      */
@@ -271,7 +271,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
 
     /**
-     * @description 查询离线消息
+     * 查询离线消息
      * @param uid
      * @param status 历史消息还是离线消息 0代表离线 1表示已读
      */
@@ -279,14 +279,14 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     
     
     /**
-     * @description 保存用户聊天记录
+     * 保存用户聊天记录
      * @param receive 聊天记录信息
      * @return Int
      */
     def saveMessage(receive: Receive): Int = userMapper.saveMessage(receive)
     
     /**
-     * @description 用户更新签名
+     * 用户更新签名
      * @param user
      * @return Boolean
      */
@@ -299,7 +299,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 激活码激活用户
+     * 激活码激活用户
      * @param activeCode
      * @return Int
      */
@@ -311,7 +311,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 判断邮件是否存在
+     * 判断邮件是否存在
      * @param email
      * @return
      */
@@ -323,7 +323,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 用户邮件和密码是否匹配
+     * 用户邮件和密码是否匹配
      * @param user
      * @return User
      */
@@ -332,15 +332,15 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
             return null
         }
         val u: User = userMapper.matchUser(user.getEmail)
-        //密码不匹配
-        if(u == null || !SecurityUtil.matchs(user.getPassword, u.getPassword)){
-            return null
-        }
+        //密码不匹配 todo 暂时不匹配密码
+//        if(u == null || !SecurityUtil.matchs(user.getPassword, u.getPassword)){
+//            return null
+//        }
         u
     }
     
     /**
-     * @description 根据群组ID查询群里用户的信息
+     * 根据群组ID查询群里用户的信息
      * @param gid
      * @return List[User]
      */
@@ -348,7 +348,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     def findUserByGroupId(gid: Int): List[User] = userMapper.findUserByGroupId(gid)
     
     /**
-     * @description 根据ID查询用户好友分组列表信息
+     * 根据ID查询用户好友分组列表信息
      * @param uid 用户ID
      * @return List[FriendList]
      */
@@ -365,7 +365,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
   
     /**
-     * @description 根据ID查询用户信息
+     * 根据ID查询用户信息
      * @param id
      * @return User
      */
@@ -375,7 +375,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 根据ID查询用户群组信息
+     * 根据ID查询用户群组信息
      * @param id
      * @return List[Group]
      */
@@ -385,7 +385,7 @@ class UserService @Autowired()(private var userMapper: UserMapper) {
     }
     
     /**
-     * @description 保存用户信息
+     * 保存用户信息
      * @param user
      * @return Int
      */

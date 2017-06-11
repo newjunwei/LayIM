@@ -21,26 +21,26 @@ import com.silence.websocket.domain.Domain
 import java.util.Collections
 
 /**
- * @description WebSocket工具 单例
- * @date 2017-04-14
+ * WebSocket工具 单例
+ * 2017-04-14
  * @author silence
  */
 object WebSocketUtil {
-  
+
     private final val LOGGER: Logger = LoggerFactory.getLogger(WebSocketUtil.getClass)
-    
+
     private final lazy val application = Application.getApplicationContext
-  
+
     @BeanProperty final var sessions = Collections.synchronizedMap(new HashMap[Integer, Session]())
-  
+
     private lazy val redisService: RedisService = application.getBean(classOf[RedisService])
-    
+
     private lazy val userService: UserService = application.getBean(classOf[UserService])
-    
-    private final val gson: Gson = new Gson     
-    
+
+    private final val gson: Gson = new Gson
+
     /**
-     * @description 发送消息
+     * 发送消息
      * @message Message
      */
     def sendMessage(message: Message): Unit = synchronized {
@@ -50,7 +50,7 @@ object WebSocketUtil {
         val receive = WebSocketUtil.getReceiveType(message)
         val key: Integer = message.getTo.getId
         //聊天类型，可能来自朋友或群组
-        if("friend".equals(message.getTo.getType)) {            
+        if("friend".equals(message.getTo.getType)) {
           	//是否在线
           	if(WebSocketUtil.getSessions.containsKey(key)) {
           		  val session: Session = WebSocketUtil.getSessions.get(key)
@@ -76,31 +76,31 @@ object WebSocketUtil {
               	  }
             }}
             //保存为离线消息
-            userService.saveMessage(receive)               		  
+            userService.saveMessage(receive)
         }
     }
-    
+
     /**
-     * @description 同意添加好友
+     * 同意添加好友
      * @param mess
      */
     def agreeAddGroup(mess: Message): Unit = {
         val agree = gson.fromJson(mess.getMsg, classOf[Domain.AgreeAddGroup])
         userService.addGroupMember(agree.getGroupId, agree.getToUid, agree.getMessageBoxId)
     }
-    
+
     /**
-     * @description 拒绝添加群
+     * 拒绝添加群
      * @param mess
      */
     def refuseAddGroup(mess: Message): Unit = {
         val refuse = gson.fromJson(mess.getMsg, classOf[Domain.AgreeAddGroup])
         userService.updateAddMessage(refuse.getMessageBoxId, 2)
-    }  
-    
+    }
+
     /**
-     * @description 通知对方删除好友
-     * @param uId我的id
+     * 通知对方删除好友
+     * @param uId 我的id
      * @param friendId 对方Id
      */
     def removeFriend(uId: Integer, friendId: Integer) = synchronized {
@@ -112,9 +112,9 @@ object WebSocketUtil {
           	WebSocketUtil.sendMessage(gson.toJson(result), sessions.get(friendId))
         }
     }
-    
+
     /**
-     * @description 添加群组
+     * 添加群组
      * @param uid
      * @param message
      */
@@ -136,9 +136,9 @@ object WebSocketUtil {
             sendMessage(gson.toJson(result), sessions.get(to.getId))
         }
     }
-    
+
     /**
-     * @description 添加好友
+     * 添加好友
      * @param uid
      * @param message
      */
@@ -157,12 +157,12 @@ object WebSocketUtil {
         //如果对方在线，则推送给对方
       	if (sessions.get(message.getTo.getId) != null) {
         		result.put("type", "addFriend")
-        		sendMessage(gson.toJson(result), sessions.get(message.getTo.getId))      	  
+        		sendMessage(gson.toJson(result), sessions.get(message.getTo.getId))
       	}
     }
-    
+
     /**
-     * @description 统计离线消息数量
+     * 统计离线消息数量
      * @param uid
      */
     def countUnHandMessage(uid: Integer): HashMap[String, String] = synchronized{
@@ -173,9 +173,9 @@ object WebSocketUtil {
         result.put("count", count + "")
         result
     }
-    
+
     /**
-     * @description 监测某个用户的离线或者在线
+     * 监测某个用户的离线或者在线
      * @param message
      */
     def checkOnline(message: Message, session: Session): HashMap[String, String] = synchronized {
@@ -185,23 +185,23 @@ object WebSocketUtil {
           result.put("type", "checkOnline")
           if (uids.contains(message.getTo.getId.toString))
               result.put("status", "在线")
-          else 
+          else
               result.put("status", "离线")
           result
     }
-    
+
     /**
-     * @description 发送消息
+     * 发送消息
      * @param message
      * @param session
      */
     def sendMessage(message: String, session: Session): Unit = synchronized {
         session.getBasicRemote().sendText(message)
     }
-    
+
     /**
-     * @description 封装返回消息格式
-     * @param Message
+     * 封装返回消息格式
+     * @param message
      * @return Receive
      */
     def getReceiveType(message: Message): Receive = {
@@ -218,9 +218,9 @@ object WebSocketUtil {
         receive.setTimestamp(DateUtil.getLongDateTime)
         receive
     }
-    
+
     /**
-     * @description 用户在线切换状态
+     * 用户在线切换状态
      * @param uid 用户id
      * @param status 状态
      */
@@ -228,8 +228,8 @@ object WebSocketUtil {
         if ("online".equals(status)) {
             redisService.setSet(SystemConstant.ONLINE_USER, uid + "")
         } else {
-          	redisService.removeSetValue(SystemConstant.ONLINE_USER, uid + "")          
+          	redisService.removeSetValue(SystemConstant.ONLINE_USER, uid + "")
         }
     }
-   
+
 }

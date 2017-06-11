@@ -11,8 +11,8 @@ import com.silence.util.DateUtil
 import org.slf4j.Logger
 
 /**
- * @description ScheduledTasks定时任务处理
- * @date 2017年3月27日
+ * ScheduledTasks定时任务处理
+ * 2017年3月27日
  * @author wang
  */
 @Component

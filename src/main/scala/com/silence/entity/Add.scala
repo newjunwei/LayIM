@@ -3,8 +3,8 @@ package com.silence.entity
 import scala.beans.BeanProperty
 
 /**
- * @description 添加好友、群组信息
- * @date 2017-04-16
+ * 添加好友、群组信息
+ * 2017-04-16
  * @author silence
  */
 class Add {

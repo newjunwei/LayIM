@@ -247,7 +247,7 @@ layui.use(['layim', 'jquery', 'laytpl'], function(layim){
 	    	 to:To
 	      }));
 	      if(To.type === 'friend'){
-		      layim.setChatStatus('<span style="color:#FF5722;">对方正在输入。。。</span>');
+		      //layim.setChatStatus('<span style="color:#FF5722;">对方正在输入。。。</span>');
 	      }
 	  });
 	

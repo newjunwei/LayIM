@@ -4,7 +4,7 @@ import scala.beans.BeanProperty
 import java.lang.Long
 
 /**
- * @description 聊天记录返回消息
+ * 聊天记录返回消息
  * @data 2017-04-13
  * @author silence
  */

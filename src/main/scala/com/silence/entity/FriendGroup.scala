@@ -3,8 +3,8 @@ package com.silence.entity
 import scala.beans.BeanProperty
 
 /**
- * @description 好友分组对象
- * @date 2017-04-30
+ * 好友分组对象
+ * 2017-04-30
  * @author silence
  */
 class FriendGroup {

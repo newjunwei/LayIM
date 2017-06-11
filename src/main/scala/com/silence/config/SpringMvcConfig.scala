@@ -7,15 +7,15 @@ import org.springframework.core.Ordered
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 
 /**
- * @description SpringMVC配置
- * @date 2017-04-07
+ * SpringMVC配置
+ * 2017-04-07
  * @author silence
  */
 @Configuration
 class SpringMvcConfig extends WebMvcConfigurerAdapter {
   
     /**
-     * @description 重写addViewControllers方法配置默认主页
+     * 重写addViewControllers方法配置默认主页
      * @param registry
      */
     override def addViewControllers(registry: ViewControllerRegistry): Unit = {
@@ -25,7 +25,7 @@ class SpringMvcConfig extends WebMvcConfigurerAdapter {
     } 
     
     /**
-     * @description 注册拦截器
+     * 注册拦截器
      * @param registry
      */
     override def addInterceptors(registry: InterceptorRegistry) = {

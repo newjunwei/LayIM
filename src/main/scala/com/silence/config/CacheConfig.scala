@@ -20,8 +20,8 @@ import org.slf4j.LoggerFactory
 import org.springframework.cache.annotation.CachingConfigurerSupport
 
 /**
- * @description redis缓存管理配置
- * @date 2017-04-05
+ *  redis缓存管理配置
+ * 2017-04-05
  * @author silence
  */
 @EnableCaching
@@ -44,7 +44,7 @@ class CacheConfig extends CachingConfigurerSupport {
     }
       
     /**
-     * @description 缓存保存策略
+     *  缓存保存策略
      * @return KeyGenerator
      */
     @Bean

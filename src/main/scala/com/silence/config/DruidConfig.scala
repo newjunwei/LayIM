@@ -11,15 +11,15 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean
 import com.alibaba.druid.support.http.WebStatFilter
 
 /**
- * @description Alibaba Druid数据源配置
- * @date 2017-04003
+ * Alibaba Druid数据源配置
+ * 2017-04003
  * @author silence
  */
 @Configuration
 class DruidConfig {
   
     /**
-     * @description druid配置访问路径和用户名密码
+     * druid配置访问路径和用户名密码
      * @return ServletRegistrationBean
      */
     @Bean
@@ -33,7 +33,7 @@ class DruidConfig {
   	}
   
     /**
-     * @description 拦截器配置 
+     * 拦截器配置
      * @return
      */
     @Bean

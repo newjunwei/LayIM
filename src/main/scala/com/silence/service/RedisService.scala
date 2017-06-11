@@ -16,7 +16,7 @@ class RedisService {
     @Autowired private var redisTemplate: RedisTemplate[String, String] = _
 
     /**
-     * @description 获取Set集合数据
+     * 获取Set集合数据
      * @param k
      * @return Set[String]
      */
@@ -25,7 +25,7 @@ class RedisService {
     }
     
     /**
-     * @description 移除Set集合中的value
+     * 移除Set集合中的value
      * @param k
      * @param v
      */
@@ -37,7 +37,7 @@ class RedisService {
     }
     
     /**
-     * @description 保存到Set集合中
+     * 保存到Set集合中
      * @param k
      * @param v
      */
@@ -49,7 +49,7 @@ class RedisService {
     }
     
     /**
-     * @description 存储Map格式
+     * 存储Map格式
      * @param key
      * @param hashKey 
      * @param hashValue
@@ -60,7 +60,7 @@ class RedisService {
     }
     
     /**
-     * @description 存储带有过期时间的key-value
+     * 存储带有过期时间的key-value
      * @param key
      * @param value 
      * @param timeOut 过期时间
@@ -80,7 +80,7 @@ class RedisService {
     }
     
     /**
-     * @description 存储key-value
+     * 存储key-value
      * @param key 
      * @return Object
      * 
@@ -93,7 +93,7 @@ class RedisService {
         redisTemplate.opsForValue().set(key, value)
     }
     /**
-     * @description 根据key获取value
+     * 根据key获取value
      * @param key 
      * @return Object
      * 
@@ -101,7 +101,7 @@ class RedisService {
     def get(key: String): Object = redisTemplate.opsForValue().get(key)
     
     /**
-     * @description 判断key是否存在
+     * 判断key是否存在
      * @param key 
      * @return Boolean
      * 
@@ -110,14 +110,14 @@ class RedisService {
     
     
     /**
-     * @description 删除key对应的value
+     * 删除key对应的value
      * @param key
      * 
      */
     def removeValue(key: String): Unit = if(exists(key)) redisTemplate.delete(key)
     
     /**
-     * @description 模式匹配批量删除key
+     * 模式匹配批量删除key
      * @param key
      * 
      */

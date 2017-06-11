@@ -7,8 +7,8 @@ import org.springframework.format.annotation.DateTimeFormat
 import javax.validation.constraints.NotNull
 
 /**
- * @description 用户属性
- * @date 2017年1月11日
+ * 用户属性
+ * 2017年1月11日
  * @author wang
  *
  */

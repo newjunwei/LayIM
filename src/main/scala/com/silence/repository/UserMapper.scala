@@ -21,22 +21,22 @@ import org.apache.ibatis.annotations.Delete
 import com.silence.domain.GroupMember
 
 /**
- * @description User Dao
- * @date 2017年1月11日
+ * User Dao
+ * 2017年1月11日
  * @author wang
  *
  */
 trait UserMapper {
 
     /**
-     * @description 退出群
+     * 退出群
      * @param groupMember
      */
     @Delete(Array("delete from t_group_members where gid=#{gid} and uid=#{uid}"))
     def leaveOutGroup(groupMember: GroupMember): Int
   
     /**
-     * @description 添加群成员
+     * 添加群成员
      * @param gid 群编号
      * @param uid 用户编号
      */
@@ -44,7 +44,7 @@ trait UserMapper {
     def addGroupMember(groupMember: GroupMember): Int
   
     /**
-     * @description 删除好友
+     * 删除好友
      * @param friendId 好友Id
      * @param uId 个人Id
      * @return Int
@@ -53,7 +53,7 @@ trait UserMapper {
     def removeFriend(@Param("friendId") friendId: Integer, @Param("uId") uId: Integer): Int
   
     /**
-     * @description 更新用户头像
+     * 更新用户头像
      * @param userId
      * @param avatar
      * @return 
@@ -62,7 +62,7 @@ trait UserMapper {
     def updateAvatar(@Param("userId") userId: Integer, @Param("avatar") avatar: String): Int
   
     /**
-     * @description 移动好友分组
+     * 移动好友分组
      * @param groupId 新的分组id
      * @param uId 被移动的好友id
      * @param mId 我的id
@@ -72,7 +72,7 @@ trait UserMapper {
     def changeGroup(@Param("groupId") groupId: Integer, @Param("uId") uId: Integer, @Param("mId") mId: Integer):Int
   
     /**
-     * @description 添加好友操作
+     * 添加好友操作
      * @param mgid 分组id
      * @param tid 对方用户id
      * @param mid 自己的id
@@ -82,14 +82,14 @@ trait UserMapper {
     def addFriend(addFriends: AddFriends): Int
   
     /**
-     * @description 统计未处理的消息
+     * 统计未处理的消息
      * @param uid
      */
     @Select(Array("<script> select count(*) from t_add_message where to_uid=#{uid} <if test='agree!=null'> and agree=#{agree} </if> </script>"))
     def countUnHandMessage(@Param("uid") uid: Integer, @Param("agree") agree: Integer): Integer
   
     /**
-     * @description 查询添加好友、群组信息
+     * 查询添加好友、群组信息
      * @param uid
      * @return List[AddInfo]
      */
@@ -102,7 +102,7 @@ trait UserMapper {
     def findAddInfo(@Param("uid") uid: Integer): List[AddInfo]
   
     /**
-     * @description 更新好友、群组信息请求
+     * 更新好友、群组信息请求
      * @param addMessage
      * @return
      */
@@ -110,7 +110,7 @@ trait UserMapper {
     def updateAddMessage(addMessage: AddMessage): Int
     
     /**
-     * @description 添加好友、群组信息请求
+     * 添加好友、群组信息请求
      * @param addMessage
      * @return
      */  
@@ -118,7 +118,7 @@ trait UserMapper {
     def saveAddMessage(addMessage: AddMessage): Int
   
     /**
-     * @description 根据群名模糊统计
+     * 根据群名模糊统计
      * @param groupName
      * @return
      */
@@ -126,7 +126,7 @@ trait UserMapper {
     def countGroup(@Param("groupName")  groupName: String): Int
   
     /**
-     * @description 根据群名模糊查询群
+     * 根据群名模糊查询群
      * @param groupName
      * @return 
      */
@@ -134,7 +134,7 @@ trait UserMapper {
     def findGroup(@Param("groupName") groupName: String): List[GroupList]
     
     /**
-     * @description 根据群id查询群信息
+     * 根据群id查询群信息
      * @param gid
      * @return
      */
@@ -142,7 +142,7 @@ trait UserMapper {
     def findGroupById(@Param("gid") gid: Integer): GroupList
     
     /**
-     * @description 根据用户名和性别统计用户
+     * 根据用户名和性别统计用户
      * @param username
      * @param sex
      */
@@ -150,7 +150,7 @@ trait UserMapper {
     def countUser(@Param("username")  username: String, @Param("sex") sex: Integer): Int
   
     /**
-     * @description 根据用户名和性别查询用户
+     * 根据用户名和性别查询用户
      * @param username
      * @param sex
      */
@@ -158,7 +158,7 @@ trait UserMapper {
     def findUsers(@Param("username")  username: String, @Param("sex") sex: Integer): List[User]
   
     /**
-     * @description 统计查询消息
+     * 统计查询消息
      * @param uid 消息所属用户
      * @param mid 来自哪个用户
      * @param Type 消息类型，可能来自friend或者group
@@ -168,7 +168,7 @@ trait UserMapper {
     def countHistoryMessage(@Param("uid") uid: Integer, @Param("mid") mid: Integer, @Param("Type") Type: String): Int
     
     /**
-     * @description 查询消息
+     * 查询消息
      * @param uid 消息所属用户
      * @param mid 来自哪个用户
      * @param Type 消息类型，可能来自friend或者group
@@ -179,7 +179,7 @@ trait UserMapper {
     def findHistoryMessage(@Param("uid") uid: Integer, @Param("mid") mid: Integer, @Param("Type") Type: String): List[Receive]
  
     /**
-     * @description 查询消息
+     * 查询消息
      * @param uid
      * @param status 历史消息还是离线消息 0代表离线 1表示已读
      */
@@ -188,7 +188,7 @@ trait UserMapper {
     def findOffLineMessage(@Param("uid") uid: Integer, @Param("status") status: Integer): List[Receive]
   
     /**
-     * @description 保存用户聊天记录
+     * 保存用户聊天记录
      * @param receive 聊天记录信息
      * @return Int
      */
@@ -196,13 +196,13 @@ trait UserMapper {
     def saveMessage(receive: Receive): Int
     
     /**
-     * @description 更新签名
+     * 更新签名
      */
     @Update(Array("update t_user set sign = #{sign} where id = #{uid}"))
     def updateSign(@Param("sign") sign: String, @Param("uid") uid: Integer): Int
   
     /**
-     * @description 激活用户账号
+     * 激活用户账号
      * @param activeCode
      * @return List[User]
      */
@@ -210,7 +210,7 @@ trait UserMapper {
     def activeUser(@Param("activeCode") activeCode: String): Int
   
     /**
-     * @description 根据群组ID查询群里用户的信息
+     * 根据群组ID查询群里用户的信息
      * @param gid
      * @return List[User]
      */
@@ -218,7 +218,7 @@ trait UserMapper {
     def findUserByGroupId(gid: Int): List[User]
   
     /**
-     * @description 根据ID查询用户信息
+     * 根据ID查询用户信息
      * @param id
      * @return User
      */
@@ -226,7 +226,7 @@ trait UserMapper {
     def findUserById(id: Int): User
     
     /**
-     * @description 根据ID查询用户群组列表,不管是自己创建的还是别人创建的
+     * 根据ID查询用户群组列表,不管是自己创建的还是别人创建的
      * @param uid 用户ID
      * @return List[Group]
      */
@@ -235,7 +235,7 @@ trait UserMapper {
     def findGroupsById(uid: Int): List[GroupList]
     
     /**
-     * @description 根据ID查询用户好友分组列表
+     * 根据ID查询用户好友分组列表
      * @param uid 用户ID
      * @return List[FriendList]
      */
@@ -243,7 +243,7 @@ trait UserMapper {
     def findFriendGroupsById(uid: Int): List[FriendList]
     
     /**
-     * @description 根据好友列表ID查询用户信息
+     * 根据好友列表ID查询用户信息
      * @param fgid
      * @return List[User]
      */
@@ -251,7 +251,7 @@ trait UserMapper {
     def findUsersByFriendGroupIds(fgid: Int): List[User]
     
     /**
-     * @description 保存用户信息
+     * 保存用户信息
      * @param user
      * @return Int
      */
@@ -260,7 +260,7 @@ trait UserMapper {
     def saveUser(user: User): Int = user.getId
     
     /**
-     * @description 
+     *
      * @param user
      * @return User
      */
@@ -268,7 +268,7 @@ trait UserMapper {
     def matchUser(email: String): User
  
     /**
-     * @description 创建好友分组列表
+     * 创建好友分组列表
      * @param uid
      * @param groupName
      */
