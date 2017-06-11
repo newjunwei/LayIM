@@ -7,3 +7,4 @@ build/
 *.swp
 rebel.xml
 log/
+.gradle
